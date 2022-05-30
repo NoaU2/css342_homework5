@@ -128,16 +128,20 @@ void ArrayList<T>::reverse_iterative() {
  */
 template<class T>
 void ArrayList<T>::_reverse_recursive(size_t idx) {
-    /*
-     * TODO: homework
-     * Optional.
-     * Use this or add your own below.
-     */
+
+    if(idx >= num_of_element/2){
+        return;
+    }
+    swap(idx, num_of_element - idx - 1);
+    _reverse_recursive(idx + 1);
 }
 
 template<class T>
 void ArrayList<T>::reverse_recursive() {
-    /*
-     * TODO: homework
-     */
+
+    if (num_of_element < 2) {
+        return;
+    }
+
+    _reverse_recursive(0);
 }

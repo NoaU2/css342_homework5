@@ -116,17 +116,28 @@ void LinkedList<T>::reverse_iterative() {
 }
 
 template<class T>
-ListNode<T> *LinkedList<T>::_reverse_recursive(ListNode<T> *head) {
-    /*
-     * TODO: homework
-     * Optional.
-     * Use this or add your own below.
-     */
+ListNode<T> *LinkedList<T>::_reverse_recursive(ListNode<T> *node) {
+
+    if(node->next == nullptr){
+        head->next = node;
+        return node;
+    }
+    else{
+        ListNode<T> *p1 = _reverse_recursive(node->next);
+        p1->next = node;
+        node->next = nullptr;
+        return node;
+    }
+
+
 }
 
 template<class T>
 void LinkedList<T>::reverse_recursive() {
-    /*
-     * TODO: homework
-     */
+
+    if (head->next == nullptr || head->next->next == nullptr) {
+        return;
+    }
+
+    _reverse_recursive(head->next);
 }

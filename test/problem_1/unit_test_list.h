@@ -28,7 +28,6 @@ void fill_list_from_back_with_sequence(int n, List<T> &list) {
 template<typename T>
 void test_new_list_with_capacity() {
     // capacity 5 is ignored here for now.
-    // TODO: replace with T check
     T *test_list = new T(5);
     ASSERT_EQ(test_list->size(), 0);
     delete test_list;
