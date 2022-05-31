@@ -19,7 +19,7 @@ bool Sudoku::solve(size_t row, size_t col) {
      * Use this or change it to your like.
      * If you do, remember to change the same in the .h file.
      */
-    if(row > 8 || col > 8){
+    if(row == 9){
         return true;
     }
     if(*challenge_board(row, col) != 0){
