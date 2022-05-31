@@ -6,22 +6,17 @@ Sudoku::~Sudoku() {
 }
 
 bool Sudoku::solve() {
-    /*
-     * TODO: homework
-     */
+
     return solve(0, 0);
 }
 
 bool Sudoku::solve(size_t row, size_t col) {
-    /*
-     * TODO: homework
-     * This helper function is OPTIONAL.
-     * Use this or change it to your like.
-     * If you do, remember to change the same in the .h file.
-     */
+
+    //initial check to see if the problem has been solved
     if(row > 8 && col == 0){
         return true;
     }
+    //keep going if the number is pre filled
     if(*challenge_board(row, col) != 0){
         if(col == 8){
             return solve((row + 1), 0);
@@ -35,7 +30,7 @@ bool Sudoku::solve(size_t row, size_t col) {
         for (int i = 0; i < SUDOKU_BOARD_SIZE; i++) {
             candidates.insert(i + 1);
         }
-
+        //checks row and column for numbers
         for (int i = 0; i < SUDOKU_BOARD_SIZE; i++) {
             int *val = challenge_board(row, i);
             if (*val != 0) {
@@ -48,7 +43,7 @@ bool Sudoku::solve(size_t row, size_t col) {
             }
 
         }
-
+        //checks square for numbers
         size_t square_start_row = (row / 3) * 3;
         size_t square_start_col = (col / 3) * 3;
         for (int i = 0; i < 3; i++) {
@@ -59,7 +54,7 @@ bool Sudoku::solve(size_t row, size_t col) {
                 }
             }
         }
-
+        //goes through the list of candidates and recursively check them
         for (int candidate: candidates) {
             set_board_val(row, col, candidate);
             bool foundSolution = false;
@@ -74,6 +69,7 @@ bool Sudoku::solve(size_t row, size_t col) {
             }
             set_board_val(row, col, 0);
         }
+        //returns false if there are no candidates left
         return false;
     }
 }

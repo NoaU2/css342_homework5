@@ -8,5 +8,14 @@ better quality code improves the speed of the development of a project
 2) cohesion
 3) favor loose coupling
 4) coding with intention
-5) avoid primitive obsession
+5) avoid primitive obsession //don't write generic code with accidental complexity
+6) imperative code
+code should read like a story not a puzzle //which sucks cause i love puzzles
+7) clear code > clever code
+8) Zinsser's principle of writing
+9) Expressive self-documenting code
+10) SLAP
+11) Variable names
+12) Tactical code reviews
+
 
