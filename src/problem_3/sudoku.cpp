@@ -24,10 +24,10 @@ bool Sudoku::solve(size_t row, size_t col) {
     }
     if(*challenge_board(row, col) != 0){
         if(col == 8){
-            solve((row + 1), 0);
+            return solve((row + 1), 0);
         }
         else{
-            solve(row, (col + 1));
+            return solve(row, (col + 1));
         }
     }
     else {
