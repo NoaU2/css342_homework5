@@ -23,11 +23,11 @@ bool Sudoku::solve(size_t row, size_t col) {
         return true;
     }
     if(*challenge_board(row, col) != 0){
-        if((row + 1) % 9 == 0){
-            solve(0, (col + 1));
+        if(col == 8){
+            solve((row + 1), 0);
         }
         else{
-            solve((row + 1), col);
+            solve(row, (col + 1));
         }
     }
     else {
@@ -63,11 +63,11 @@ bool Sudoku::solve(size_t row, size_t col) {
         for (int candidate: candidates) {
             set_board_val(row, col, candidate);
             bool foundSolution = false;
-            if((row + 1) % 9 == 0){
-                foundSolution = solve(0, (col + 1));
+            if(col == 8){
+                foundSolution = solve((row + 1), 0);
             }
             else{
-                foundSolution = solve((row + 1), col);
+                foundSolution = solve(row, (col + 1));
             }
             if (foundSolution) {
                 return true;
@@ -76,5 +76,4 @@ bool Sudoku::solve(size_t row, size_t col) {
         }
         return false;
     }
-
 }
